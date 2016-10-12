@@ -1,6 +1,16 @@
 ECLIPSE ANDROID PROJECT IMPORT SUMMARY
 ======================================
 
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .DS_Store
+* .gitignore
+* proguard-unity.txt
+
 Moved Files:
 ------------
 Android Gradle projects use a different directory structure than ADT
@@ -12,6 +22,9 @@ Eclipse projects. Here's how the projects were restructured:
 * libs/armeabi-v7a/libmono.so => app/src/main/jniLibs/armeabi-v7a/libmono.so
 * libs/armeabi-v7a/libunity.so => app/src/main/jniLibs/armeabi-v7a/libunity.so
 * libs/unity-classes.jar => app/libs/unity-classes.jar
+* libs/x86/libmain.so => app/src/main/jniLibs/x86/libmain.so
+* libs/x86/libmono.so => app/src/main/jniLibs/x86/libmono.so
+* libs/x86/libunity.so => app/src/main/jniLibs/x86/libunity.so
 * res/ => app/src/main/res/
 * src/ => app/src/main/java/
 
