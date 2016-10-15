@@ -1,0 +1,37 @@
+fastlane_version "1.105.2"
+
+default_platform :android
+
+# IMPORTANT: set ENV['SLACK_URL'] to post to Slack.
+platform :android do
+  before_all do
+    gradle(task: 'clean')
+  end
+
+  desc 'Runs all the tests'
+  lane :test do
+    gradle(task: 'test')
+  end
+
+  desc 'Build a development app'
+  lane :develop do
+    gradle(task: 'assembleDebug')
+  end
+
+  desc 'Deploy a new version to the Google Play'
+  lane :release do
+    gradle(task: 'assembleRelease')
+    supply
+  end
+
+  after_all do |lane|
+    slack(message: 'Breakthrough-android fastlane task succeeded.')
+  end
+
+  error do |lane, exception|
+    slack(
+      message: exception.message,
+      success: false
+    )
+  end
+end
